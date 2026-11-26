@@ -271,7 +271,14 @@ function buildBoard(raw){
   }
   return {cards,D,P,opt:optimalMatching(P)};
 }
-const pickBoard=r=>buildBoard(BOARDS[r][Math.floor(Math.random()*BOARDS[r].length)]);
+// 같은 보드를 다시 만나도 자리가 달라지도록 조각 위치를 섞는다
+function shuffleBoard(b){
+  const perm=b.cards.map((_,i)=>i);
+  for(let i=perm.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[perm[i],perm[j]]=[perm[j],perm[i]];}
+  const P=perm.map(i=>perm.map(j=>b.P[i][j]));
+  return {cards:perm.map(i=>b.cards[i]),D:perm.map(i=>perm.map(j=>b.D[i][j])),P,opt:optimalMatching(P)};
+}
+const pickBoard=r=>shuffleBoard(buildBoard(BOARDS[r][Math.floor(Math.random()*BOARDS[r].length)]));
 
 
 const $=s=>document.querySelector(s);
