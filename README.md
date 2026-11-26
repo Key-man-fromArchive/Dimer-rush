@@ -26,3 +26,7 @@ python3 -m http.server 8000   # http://localhost:8000
 | `boards.js` | 미리 계산한 보드 180개(튜브당 60개)와 쌍별 결과 |
 
 ΔG 계산 엔진은 이 저장소에 없다. 보드는 별도 생성기로 만들고, 게임은 `boards.js`의 결과값만 읽는다.
+
+## 저작권
+
+© 2026 InVirusTech Inc. 모든 권리 보유. 게임을 보고 플레이할 수 있도록 공개한 저장소이고, 오픈소스 라이선스는 적용되지 않는다. 코드와 내용, InVirusTech의 이름과 로고를 복제·수정·재배포하거나 다른 곳에 쓰려면 InVirusTech Inc.의 사전 허락이 필요하다. 전문은 [LICENSE](LICENSE)에 있다.
